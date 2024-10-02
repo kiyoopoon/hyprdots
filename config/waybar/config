@@ -5,15 +5,15 @@
       ],
       "modules-left": [
         "custom/launcher",
-        "custom/playerctl#backward",
-        "custom/playerctl#play",
-        "custom/playerctl#foward",
+        "custom/weather",
         "custom/playerlabel"
+        /*"custom/playerctl#play",*/
+        /*"custom/playerlabel"*/
       ],
       "modules-right": [
         "tray",
         "pulseaudio",
-        "network",
+        /*"network",*/
         "clock",
 	"custom/notification"
       ],
@@ -73,7 +73,7 @@
       /* Player Label Module */
       "custom/playerlabel": {
         "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-        "format": "<span>󰎈 {} 󰎈</span>",
+        "format": "<span> - {}</span>",
         "max-length": 25,
         "on-click": "",
         "return-type": "json"
@@ -118,7 +118,7 @@
             " "
           ]
         },
-        "format-muted": "󰝟",
+        "format-muted": "",
         "on-click": "pavucontrol",
         "scroll-step": 5
       },
@@ -166,6 +166,16 @@
 	      "on-click": "swaync-client -t -sw",
 	      "on-click-right": "swaync-client -d -sw",
 	      "escape": true
+      },
+
+      /* Weather */
+      /* To setup this you will need to install the wttrbar. https://github.com/bjesus/wttrbar */
+      "custom/weather": {
+          "format": "{}°",
+          "tooltip": true,
+          "interval": 3600,
+          "exec": "wttrbar",
+          "return-type": "json"
       },
   
       /* Bar Position */

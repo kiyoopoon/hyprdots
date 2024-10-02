@@ -19,7 +19,8 @@ window#waybar {
 #pulseaudio,
 #network,
 #custom-launcher,
-#clock {
+#clock,
+#custom-weather {
     margin: 4px;
     padding: 4px 10px;
 }
@@ -56,9 +57,7 @@ window#waybar {
 #pulseaudio,
 #network,
 #battery,
-#custom-playerctl.backward,
-#custom-playerctl.play,
-#custom-playerctl.foward {
+#custom-weather {
     background: #040407;
 }
 
