@@ -1,0 +1,41 @@
+# Base colors
+foreground              #BFBDB6
+background              #0D1017
+selection_foreground    #BFBDB6
+selection_background    #409FFF
+
+# Cursor colors
+cursor                  #E6B673
+cursor_text_color       #0D1017
+
+# Cursor shape
+cursor_shape block
+
+# Normal colors
+color0                  #131721
+color1                  #F07178
+color2                  #AAD94C
+color3                  #E6B673
+color4                  #59C2FF
+color5                  #D2A6FF
+color6                  #95E6CB
+color7                  #ACB6BF
+
+# Bright colors
+color8                  #565B66
+color9                  #F26D78
+color10                 #7FD962
+color11                 #FFB454
+color12                 #73B8FF
+color13                 #D2A6FF
+color14                 #95E6CB
+color15                 #BFBDB6
+
+# Tab colors
+active_tab_foreground   #0D1017
+active_tab_background   #59C2FF
+inactive_tab_foreground #ACB6BF
+inactive_tab_background #131721
+
+# Launch fish shell on startup
+shell /usr/bin/fish

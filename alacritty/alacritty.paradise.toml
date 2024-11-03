@@ -1,0 +1,55 @@
+[colors.bright]
+black = "#424242"
+blue = "#8DA3B9"
+cyan = "#8AA6A2"
+green = "#8C977D"
+magenta = "#A988B0"
+red = "#B66467"
+white = "#E8E3E3"
+yellow = "#D9BC8C"
+
+[colors.normal]
+black = "#151515"
+blue = "#8DA3B9"
+cyan = "#8AA6A2"
+green = "#8C977D"
+magenta = "#A988B0"
+red = "#B66467"
+white = "#E8E3E3"
+yellow = "#D9BC8C"
+
+[colors.primary]
+background = "#151515"
+foreground = "#E8E3E3"
+
+[cursor]
+# blink = true
+style = "block"
+thickness = 0.2
+unfocused_hollow = false
+
+[font]
+size = 11
+
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Medium"
+
+[shell]
+program = "/bin/fish"
+
+[window.padding]
+x = 1
+y = 1

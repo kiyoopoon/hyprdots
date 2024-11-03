@@ -1,0 +1,198 @@
+[
+    {
+      "modules-center": [
+        "hyprland/workspaces"
+      ],
+      "modules-left": [
+        "custom/launcher",
+        "custom/weather",
+        "custom/playerlabel"
+        /*"custom/playerctl#play",*/
+        /*"custom/playerlabel"*/
+      ],
+      "modules-right": [
+        "tray",
+        "pulseaudio",
+        /*"network",*/
+        "clock",
+	"custom/notification"
+      ],
+  
+      /* Launcher Module */
+      "custom/launcher": {
+        "format": "󰣇",
+        "tooltip": "false"
+      },
+  
+      /* Clock Module */
+      "clock": {
+        "format": "  {:%a, %d %b, %I:%M %p}",
+        "format-alt": "  {:%d/%m}",
+        "tooltip": "true",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+      },
+  
+      /* CPU Module */
+      "cpu": {
+        "format": "󰻠 {usage}%",
+        "format-alt": "󰻠 {avg_frequency} GHz",
+        "interval": 5
+      },
+  
+      /* Playerctl Backward Module */
+      "custom/playerctl#backward": {
+        "format": "󰙣 ",
+        "on-click": "playerctl previous",
+        "on-scroll-down": "playerctl volume .05-",
+        "on-scroll-up": "playerctl volume .05+"
+      },
+  
+      /* Playerctl Forward Module */
+      "custom/playerctl#foward": {
+        "format": "󰙡 ",
+        "on-click": "playerctl next",
+        "on-scroll-down": "playerctl volume .05-",
+        "on-scroll-up": "playerctl volume .05+"
+      },
+  
+      /* Playerctl Play Module */
+      "custom/playerctl#play": {
+        "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+        "format": "{icon}",
+        "format-icons": {
+          "Paused": "<span>󰐍 </span>",
+          "Playing": "<span>󰏥 </span>",
+          "Stopped": "<span>󰐍 </span>"
+        },
+        "on-click": "playerctl play-pause",
+        "on-scroll-down": "playerctl volume .05-",
+        "on-scroll-up": "playerctl volume .05+",
+        "return-type": "json"
+      },
+  
+      /* Player Label Module */
+      "custom/playerlabel": {
+        "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+        "format": "<span> - {}</span>",
+        "max-length": 25,
+        "on-click": "",
+        "return-type": "json"
+      },
+  
+      /* Random Wallpaper Module */
+      "custom/randwall": {
+        "format": "󰏘"
+      },
+  
+      /* Bar Dimensions */
+      "height": 35,
+      "layer": "background",
+      "margin-bottom": 0,
+      "margin-left": 0,
+      "margin-right": 0,
+      "margin-top": 0,
+  
+      /* Memory Module */
+      "memory": {
+        "format": "󰍛 {}%",
+        "format-alt": "󰍛 {used}/{total} GiB",
+        "interval": 5
+      },
+  
+      /* Network Module */
+      "network": {
+        "format-disconnected": "󰖪 0% ",
+        "format-ethernet": "  100%",
+        "format-linked": "{ifname} (No IP)",
+        "format-wifi": "  {signalStrength}%",
+        "tooltip-format": "Connected to {essid} {ifname} via {gwaddr}"
+      },
+  
+      /* Pulseaudio Module */
+      "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-icons": {
+          "default": [
+            "",
+            "",
+            " "
+          ]
+        },
+        "format-muted": "󰝟",
+        "on-click": "pavucontrol",
+        "scroll-step": 5
+      },
+  
+      /* Tray Module */
+      "tray": {
+        "icon-size": 15,
+        "spacing": 8
+      },
+  
+      /* Workspaces Module */
+      "hyprland/workspaces": {
+          "format": "{icon}",
+          "format-icons": {
+              "1": "",
+              "2": "",
+              "3": "",
+              "4": "",
+              "5": "",
+              "default": ""
+          },
+          "active-only": true,
+          "persistent-workspaces": {
+              "*": 5, // 5 workspaces by default on every monitor
+              "HDMI-A-1": 3 // but only three on HDMI-A-1
+          }
+      },
+
+      "sway/workspaces": {
+          "format": "<span size='larger'>{name}</span> {windows}",
+          "format-window-separator": " | ",
+          "window-rewrite-default": "{name}",
+          "window-format": "<span color='#e0e0e0'>{name}</span>",
+          "window-rewrite": {
+              "class<firefox>": "",
+              "class<kitty>": "k",
+              "title<.* - (.*) - VSCodium>": "codium $1"  // captures part of the window title and formats it into output
+          }
+      },
+
+      /* Notification */
+      "custom/notification": {
+	      "tooltip": false,
+	      "format": "{icon}",
+	      "format-icons": {
+		      "notification": "",
+		      "none": "",
+		      "dnd-notification": "",
+		      "dnd-none": "",
+		      "inhibited-notification": "",
+		      "inhibited-none": "",
+		      "dnd-inhibited-notification": "",
+		      "dnd-inhibited-none": ""
+	      },
+	      "return-type": "json",
+	      "exec-if": "which swaync-client",
+	      "exec": "swaync-client -swb",
+	      "on-click": "swaync-client -t -sw",
+	      "on-click-right": "swaync-client -d -sw",
+	      "escape": true
+      },
+
+      /* Weather */
+      /* To setup this you will need to install the wttrbar. https://github.com/bjesus/wttrbar */
+      "custom/weather": {
+          "format": "{}°",
+          "tooltip": true,
+          "interval": 3600,
+          "exec": "wttrbar",
+          "return-type": "json"
+      },
+  
+      /* Bar Position */
+      "position": "top"
+    }
+  ]
+  

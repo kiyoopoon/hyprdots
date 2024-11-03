@@ -1,0 +1,10 @@
+import = ["/home/kiyo/.cache/wal/colors-alacritty.toml"]
+shell = "/bin/fish"
+
+[window.padding]
+x = 0
+y = 0
+
+[font]
+normal = { family = "JetbrainsMono Nerd Font Mono", style = "Regular" }
+size = 11
