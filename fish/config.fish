@@ -50,3 +50,7 @@ bind \cU backward-kill-line  # Ctrl+U to delete the whole line
 zoxide init fish --cmd cd | source
 
 fish_add_path /home/kiyo/.spicetify
+
+function ssh_to
+    python3 ~/.config/fish/ssh_manager.py $argv
+end
